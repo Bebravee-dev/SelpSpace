@@ -1,0 +1,29 @@
+@import "../../styles/MainStyles.scss";
+
+.MoreDetails {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+
+  color: $primary-text-color;
+  font-size: clamp(12px, 4vw, 24px);
+  font-family: $primary-font;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0.48px;
+
+  img {
+    width: 16px;
+
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    img {
+      transform: rotate(45deg);
+    }
+  }
+}

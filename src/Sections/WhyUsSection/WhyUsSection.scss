@@ -1,0 +1,245 @@
+@import "../../styles/MainStyles.scss";
+
+$color: 1px solid #8c8c8c;
+
+@mixin WhyUsSection__item-border-mixin($top, $right, $bottom, $left) {
+  border-top: $top;
+  border-right: $right;
+  border-bottom: $bottom;
+  border-left: $left;
+}
+
+@mixin WhyUsSection__item-bg-mixin($img) {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("./img/WhyUsSection-item#{$img}.png");
+
+    opacity: 0;
+
+    filter: grayscale(100%);
+
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover:before {
+    opacity: 0.1;
+  }
+
+  @media (hover: none) {
+    &:hover:before {
+      opacity: 0;
+    }
+  }
+}
+
+.WhyUsSection {
+  @include center-column-content(100px);
+
+  align-items: start;
+
+  @media (max-width: 600px) {
+    padding: 30px 0;
+    gap: 50px;
+  }
+}
+
+.WhyUsSection__name {
+  @include default-section-text-header;
+}
+
+.WhyUsSection__items-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.WhyUsSection__item {
+  display: flex;
+  flex-direction: column;
+  gap: 133px;
+  padding: 50px;
+
+  h1 {
+    font-family: $primary-font;
+    color: $primary-text-color;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.4;
+  }
+
+  p {
+    font-family: $secondary-font;
+    color: $secondary-text-color;
+    font-weight: 400;
+    font-size: 14;
+    letter-spacing: 0.28;
+  }
+}
+
+.WhyUsSection__item-img {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+}
+
+.WhyUsSection__item-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.WhyUsSection__item.item-1 {
+  @include WhyUsSection__item-border-mixin(none, $color, none, none);
+  text-align: left;
+  padding-top: 90px;
+  padding-left: 0;
+}
+
+.WhyUsSection__item.item-2 {
+  @include WhyUsSection__item-border-mixin($color, $color, none, none);
+  @include WhyUsSection__item-bg-mixin(1);
+}
+
+.WhyUsSection__item.item-3 {
+  @include WhyUsSection__item-border-mixin($color, $color, none, none);
+  @include WhyUsSection__item-bg-mixin(2);
+}
+
+.WhyUsSection__item.item-4 {
+  @include WhyUsSection__item-border-mixin($color, $color, $color, $color);
+  @include WhyUsSection__item-bg-mixin(3);
+}
+
+.WhyUsSection__item.item-5 {
+  @include WhyUsSection__item-border-mixin($color, $color, $color, none);
+  @include WhyUsSection__item-bg-mixin(4);
+}
+
+.WhyUsSection__item.item-6 {
+  @include WhyUsSection__item-border-mixin($color, none, none, none);
+  position: relative;
+  padding: 50px;
+
+  div {
+    div {
+      bottom: 25px;
+      right: 25px;
+      position: absolute;
+    }
+  }
+}
+
+@media (max-width: 1339px) {
+  .WhyUsSection__items-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .WhyUsSection__item.item-1 {
+    @include WhyUsSection__item-border-mixin(none, $color, none, none);
+  }
+
+  .WhyUsSection__item.item-2 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, none);
+  }
+
+  .WhyUsSection__item.item-3 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhyUsSection__item.item-4 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, none);
+  }
+
+  .WhyUsSection__item.item-5 {
+    @include WhyUsSection__item-border-mixin($color, $color, $color, $color);
+  }
+
+  .WhyUsSection__item.item-6 {
+    @include WhyUsSection__item-border-mixin($color, none, none, none);
+  }
+}
+
+@media (max-width: 897px) {
+  .WhyUsSection__items-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .WhyUsSection__item.item-1 {
+    @include WhyUsSection__item-border-mixin(none, none, none, none);
+  }
+
+  .WhyUsSection__item.item-2 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhyUsSection__item.item-3 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhyUsSection__item.item-4 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhyUsSection__item.item-5 {
+    @include WhyUsSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhyUsSection__item.item-6 {
+    @include WhyUsSection__item-border-mixin($color, none, none, none);
+    position: relative;
+    div {
+      div {
+        bottom: -50px;
+        right: 25px;
+        position: absolute;
+      }
+    }
+  }
+
+  .WhyUsSection__text-bottom {
+    margin-top: 100px;
+  }
+}
+
+.WhyUsSection__text-bottom {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  @include secondary-name-text;
+}
+
+@media (max-width: 594px) {
+  .WhyUsSection__text-bottom {
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 431px) {
+  .WhyUsSection__item {
+    padding: 20px;
+  }
+  .WhyUsSection__item.item-6 {
+    div {
+      div {
+        bottom: -70px;
+        right: 0;
+        position: absolute;
+      }
+    }
+  }
+}

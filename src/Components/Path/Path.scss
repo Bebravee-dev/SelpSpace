@@ -1,0 +1,19 @@
+@import "../../styles/MainStyles.scss";
+
+.Path {
+  position: absolute;
+  top: 150px;
+  left: 0;
+
+  font-size: 12px;
+  font-family: $secondary-font;
+  font-weight: 400;
+  letter-spacing: 0.24px;
+  p {
+    color: $secondary-text-color;
+  }
+
+  span {
+    color: $primary-text-color;
+  }
+}

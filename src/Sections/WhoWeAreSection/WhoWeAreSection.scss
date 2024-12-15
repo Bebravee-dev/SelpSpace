@@ -1,0 +1,317 @@
+@import "../../styles/MainStyles.scss";
+
+.WhoWeAreSection__header {
+  @include default-section-text-header;
+}
+
+.WhoWeAreSection__stats {
+  padding: 38px 148px 38px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(39, 39, 39);
+  border-radius: 24px;
+  column-gap: 119px;
+
+  p {
+    max-width: 581px;
+    color: $secondary-text-color;
+    font-weight: 400;
+    font-size: clamp(4px, 4vw, 16px);
+    line-height: 120%;
+    letter-spacing: 0.02em;
+  }
+}
+
+.WhoWeAreSection__stats-numbers {
+  display: flex;
+  gap: 50px;
+}
+
+.WhoWeAreSection__stats-numbers-item {
+  max-width: 164px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  h2 {
+    color: $primary-text-color;
+    font-family: $primary-font;
+    font-weight: 700;
+    font-size: clamp(8px, 5vw, 32px);
+
+    line-height: 120%;
+    letter-spacing: 0.02em;
+  }
+
+  img {
+    width: 60px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .WhoWeAreSection__stats-numbers {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  .WhoWeAreSection__stats-p {
+    display: none;
+  }
+
+  .WhoWeAreSection__stats {
+    padding: 38px;
+  }
+}
+
+$color: 1px solid #8c8c8c;
+
+@mixin WhoWeAreSection__item-border-mixin($top, $right, $bottom, $left) {
+  border-top: $top;
+  border-right: $right;
+  border-bottom: $bottom;
+  border-left: $left;
+}
+
+@mixin WhoWeAreSection__item-bg-mixin($img) {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("./img/WhoWeAre-item#{$img}.png");
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    &:hover:before {
+      opacity: 0;
+    }
+  }
+}
+
+.WhoWeAreSection {
+  @include center-column-content(100px);
+
+  align-items: start;
+
+  @media (max-width: 600px) {
+    padding: 30px 0;
+    gap: 50px;
+  }
+}
+
+.WhoWeAreSection__name {
+  @include default-section-text-header;
+}
+
+.WhoWeAreSection__items-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.WhoWeAreSection__item {
+  display: flex;
+  flex-direction: column;
+  gap: 133px;
+  padding: 50px;
+
+  h1 {
+    font-family: $primary-font;
+    color: $primary-text-color;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.4;
+  }
+
+  p {
+    font-family: $secondary-font;
+    color: $secondary-text-color;
+    font-weight: 400;
+    font-size: 14;
+    letter-spacing: 0.28;
+  }
+
+  &:hover {
+    .leng {
+      filter: grayscale(0%);
+    }
+  }
+}
+
+.leng {
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
+
+.WhoWeAreSection__item-img {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+}
+
+.WhoWeAreSection__item-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.WhoWeAreSection__item.item-1 {
+  @include WhoWeAreSection__item-border-mixin(none, $color, none, none);
+  text-align: left;
+  padding-top: 90px;
+  padding-left: 0;
+}
+
+.WhoWeAreSection__item.item-2 {
+  @include WhoWeAreSection__item-border-mixin($color, $color, none, none);
+  @include WhoWeAreSection__item-bg-mixin(1);
+}
+
+.WhoWeAreSection__item.item-3 {
+  @include WhoWeAreSection__item-border-mixin($color, $color, none, none);
+  @include WhoWeAreSection__item-bg-mixin(2);
+}
+
+.WhoWeAreSection__item.item-4 {
+  @include WhoWeAreSection__item-border-mixin($color, $color, $color, $color);
+  @include WhoWeAreSection__item-bg-mixin(3);
+}
+
+.WhoWeAreSection__item.item-5 {
+  @include WhoWeAreSection__item-border-mixin($color, $color, $color, none);
+  @include WhoWeAreSection__item-bg-mixin(4);
+}
+
+.WhoWeAreSection__item.item-6 {
+  @include WhoWeAreSection__item-border-mixin($color, none, none, none);
+  position: relative;
+  padding: 50px;
+
+  div {
+    div {
+      bottom: 25px;
+      right: 25px;
+      position: absolute;
+    }
+  }
+}
+
+@media (max-width: 1339px) {
+  .WhoWeAreSection__items-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .WhoWeAreSection__item.item-1 {
+    @include WhoWeAreSection__item-border-mixin(none, $color, none, none);
+  }
+
+  .WhoWeAreSection__item.item-2 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, none);
+  }
+
+  .WhoWeAreSection__item.item-3 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhoWeAreSection__item.item-4 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, none);
+  }
+
+  .WhoWeAreSection__item.item-5 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, $color, $color);
+  }
+
+  .WhoWeAreSection__item.item-6 {
+    @include WhoWeAreSection__item-border-mixin($color, none, none, none);
+  }
+}
+
+@media (max-width: 897px) {
+  .WhoWeAreSection__items-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .WhoWeAreSection__item.item-1 {
+    @include WhoWeAreSection__item-border-mixin(none, none, none, none);
+  }
+
+  .WhoWeAreSection__item.item-2 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhoWeAreSection__item.item-3 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhoWeAreSection__item.item-4 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhoWeAreSection__item.item-5 {
+    @include WhoWeAreSection__item-border-mixin($color, $color, none, $color);
+  }
+
+  .WhoWeAreSection__item.item-6 {
+    @include WhoWeAreSection__item-border-mixin($color, none, none, none);
+    div {
+      div {
+        bottom: -50px;
+        right: 25px;
+        position: absolute;
+      }
+    }
+  }
+
+  .WhoWeAreSection__text-bottom {
+    margin-top: 100px;
+  }
+}
+
+.WhoWeAreSection__text-bottom {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  @include secondary-name-text;
+}
+
+@media (max-width: 594px) {
+  .WhoWeAreSection__text-bottom {
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 431px) {
+  .WhoWeAreSection__item {
+    padding: 20px;
+  }
+  .WhoWeAreSection__item.item-6 {
+    div {
+      div {
+        bottom: -70px;
+        right: 0;
+        position: absolute;
+      }
+    }
+  }
+}

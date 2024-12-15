@@ -1,0 +1,12 @@
+@import "../../../../styles/MainStyles.scss";
+
+.AuthenticationName {
+  margin-bottom: 65px;
+  font-family: $primary-font;
+  color: $primary-text-color;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0.02em;
+  text-align: center;
+}

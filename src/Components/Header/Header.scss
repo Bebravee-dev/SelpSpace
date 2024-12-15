@@ -1,0 +1,45 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Fonts.scss";
+
+.Header {
+  z-index: 100;
+  position: fixed;
+
+  width: 100%;
+
+  border-bottom: 1px solid $border-color;
+  backdrop-filter: blur(24px);
+  background: rgba(0, 0, 0, 0.01);
+  transition: transform 0.1s linear;
+}
+
+.header--hidden {
+  transform: translateY(-130px);
+}
+
+.Header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100px;
+}
+
+.Header__menu-icon {
+  cursor: pointer;
+
+  width: 37.5px;
+}
+
+.Header__account-button {
+  .Header__account-icon {
+    cursor: pointer;
+    width: 37.5px;
+  }
+}
+
+@media (max-width: 390px) {
+  .Header__logo {
+    display: none;
+  }
+}

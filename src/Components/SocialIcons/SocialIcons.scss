@@ -1,0 +1,29 @@
+.SocialIcons {
+  display: flex;
+  align-items: center;
+  gap: 28.92px;
+
+  div {
+    width: 30px;
+
+    .SocialIcons-vk {
+      width: 27px;
+    }
+  }
+
+  img {
+    cursor: pointer;
+    filter: grayscale(0%) brightness(0.5);
+    transition: filter 0.2s ease;
+
+    &:hover {
+      filter: grayscale(0%) brightness(1.2);
+    }
+
+    @media (hover: none) {
+      &:hover {
+        filter: grayscale(0%) brightness(0.5);
+      }
+    }
+  }
+}

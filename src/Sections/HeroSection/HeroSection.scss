@@ -1,0 +1,114 @@
+@import "../../styles/MainStyles.scss";
+@import "../../styles/Colors.scss";
+//.HeroSection__bg {
+//background: url("./img/bg.gif");
+//}
+
+.HeroSection {
+  @include center-column-content(60px);
+
+  height: 950px;
+}
+
+.HeroSection-text {
+  @include center-column-content(20px);
+
+  margin-top: 170px;
+
+  .HeroSection-primary-text {
+    @include primary-text(center, 48px, $primary-text-color, 600);
+
+    white-space: nowrap;
+
+    .HeroSection-primary-text-highlight {
+      background: $linear-gradient1;
+      margin-left: 7px;
+      padding: 0 3.5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.HeroSection-secondary-text {
+  @include secondary-text(center, 16px, $secondary-text-color);
+  max-width: 993px;
+}
+
+.HeroSection-buttons {
+  display: flex;
+  gap: 20px;
+
+  .HeroSection-first-btn {
+    @include secondary-text(center, 16px, $secondary-text-color);
+    font-size: 16px;
+    cursor: pointer;
+
+    background-color: $black-bg-color;
+
+    width: 210px;
+    height: 50px;
+
+    border-radius: 999px;
+
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: $bg-hover1;
+    }
+
+    @media (hover: none) {
+      &:hover {
+        background-color: $black-bg-color;
+      }
+    }
+  }
+
+  .HeroSection-second-btn {
+    @include secondary-text(center, 16px, $secondary-text-color);
+    font-size: 16px;
+
+    cursor: pointer;
+
+    background: $linear-gradient1;
+    position: relative;
+    z-index: 1;
+    width: 210px;
+    height: 50px;
+    border-radius: 999px;
+    overflow: hidden;
+    transition: color 0.05s ease;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $linear-gradient1;
+      z-index: -1;
+      transition: opacity 0.15s ease;
+    }
+
+    &:hover {
+      color: $black-text-color;
+      &:before {
+        opacity: 0;
+      }
+      background: $bg-hover2;
+    }
+
+    @media (hover: none) {
+      &:hover {
+        background: $linear-gradient1;
+        color: $primary-text-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .HeroSection-buttons {
+    flex-direction: column;
+  }
+}

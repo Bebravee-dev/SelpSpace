@@ -1,0 +1,136 @@
+@import "./Reset.scss";
+@import "./Colors.scss";
+@import "./Fonts.scss";
+
+body {
+  background-color: $main-background-color;
+}
+
+.container {
+  position: relative;
+  max-width: 1460px;
+
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.header-padding {
+  height: 130px;
+}
+
+img {
+  user-select: none;
+}
+
+@mixin primary-text($text-align, $size, $color, $weight) {
+  font-family: $primary-font;
+  font-size: clamp(calc($size * 0.25), 4vw, $size);
+  font-weight: $weight;
+  color: $color;
+  line-height: 120%;
+
+  text-align: $text-align;
+}
+
+@mixin secondary-text($text-align, $size, $color) {
+  font-family: $secondary-font;
+  font-weight: 400;
+  font-size: clamp(calc($size * 0.25), 2.5vw, $size);
+  line-height: 120%;
+  letter-spacing: 0.02em;
+  color: $color;
+
+  text-align: $text-align;
+}
+
+@mixin primary-name-text {
+  color: $primary-text-color;
+  font-family: $primary-font;
+  font-size: clamp(12px, 8vw, 48px);
+
+  font-weight: 700;
+  line-height: 57.6px;
+  letter-spacing: 0.96px;
+
+  word-wrap: break-word;
+
+  @media (max-width: 500px) {
+    line-height: 30px;
+  }
+
+  @media (max-width: 270px) {
+    line-height: 14px;
+  }
+}
+
+@mixin secondary-name-text {
+  color: $secondary-text-color;
+  font-family: $secondary-font;
+  max-width: 700px;
+  font-size: clamp(4px, 4vw, 16px);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  word-wrap: break-word;
+
+  @media (max-width: 500px) {
+    line-height: 20px;
+  }
+
+  @media (max-width: 270px) {
+    line-height: 14px;
+  }
+}
+
+@mixin center-column-content($gap) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: $gap;
+}
+
+@mixin default-section-text-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+
+  h1 {
+    @include primary-name-text;
+  }
+
+  p {
+    @include secondary-name-text;
+  }
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+.section-header-h1 {
+  font-size: clamp(12px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  font-family: $primary-font;
+  color: $primary-text-color;
+}
+
+.section-header-p {
+  font-size: clamp(4px, 5vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.32px;
+  font-family: $secondary-font;
+  color: $secondary-text-color;
+}

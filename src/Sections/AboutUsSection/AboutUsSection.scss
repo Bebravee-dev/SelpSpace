@@ -1,0 +1,96 @@
+@import "../../styles/MainStyles.scss";
+
+.AboutUsSection {
+  @include center-column-content(120px);
+
+  @media (max-width: 600px) {
+    padding: 30px 0;
+    gap: 60px;
+  }
+}
+
+.AboutUsSection__text {
+  @include default-section-text-header;
+}
+
+.AboutUsSection__notebook {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #c1c1c1;
+  width: 100%;
+
+  border-radius: 24px;
+  overflow: hidden;
+  height: 550px;
+
+  box-shadow: 5px 5px 15px #131313;
+}
+
+.AboutUsSection-left {
+  display: flex;
+  flex-direction: column;
+
+  gap: 84px;
+  padding: 100px 0 0 100px;
+}
+
+.AboutUsSection__stats {
+  display: flex;
+  gap: 50px;
+
+  h1 {
+    @include primary-text(center, 48px, $main-background-color, 700);
+    font-size: 48px;
+  }
+
+  p {
+    @include secondary-text(left, 16px, $secondary-text-color2);
+    white-space: nowrap;
+    font-size: 16px;
+  }
+}
+
+.AboutUsSection__discuss_button {
+  display: flex;
+}
+
+.AboutUsSection-right {
+  position: absolute;
+  right: 0;
+}
+
+@media (max-width: 1380px) {
+  .AboutUsSection__notebook {
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+  }
+  .AboutUsSection-left {
+    flex-direction: row;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .AboutUsSection-right {
+    display: none;
+  }
+}
+
+@media (max-width: 830px) {
+  .AboutUsSection__notebook {
+    height: 500px;
+  }
+  .AboutUsSection-left {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 608px) {
+  .AboutUsSection__notebook {
+    height: 700px;
+  }
+  .AboutUsSection__stats {
+    flex-direction: column;
+  }
+}

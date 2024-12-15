@@ -1,0 +1,45 @@
+@import "../../styles/MainStyles.scss";
+
+.OurServices {
+  padding-top: 200px;
+}
+
+.OurServices__name {
+  @include default-section-text-header;
+
+  p {
+    text-align: right;
+    max-width: 730px;
+  }
+}
+
+.OurSection__img-section {
+  .OurServices__img {
+    filter: grayscale(100%);
+
+    transition: filter 0.2s ease;
+  }
+
+  &:hover {
+    .OurServices__img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .OurSection__img-section {
+    justify-content: center;
+    text-align: center;
+
+    gap: 0;
+  }
+
+  .OurSection__img-section-text {
+    width: 100%;
+  }
+
+  .OurServices__img {
+    display: none;
+  }
+}

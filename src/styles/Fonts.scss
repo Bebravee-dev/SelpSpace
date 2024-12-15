@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Involve";
+  src: url("../assets/font/Involve/Involve-Regular.ttf") format("truetype"),
+    url("../assets/font/Involve/Involve-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
+
+$primary-font: "Unbounded", system-ui;
+$secondary-font: "Involve", sans-serif;
